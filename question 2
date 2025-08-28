@@ -1,0 +1,20 @@
+filename = input("Enter the name of the file to read: ")
+
+try:
+    # Try to open and read the file
+    with open(filename, "r") as infile:
+        content = infile.read()
+
+    # Modify the content (e.g., convert to uppercase)
+    modified_content = content.upper()
+
+    # Write the modified content to a new file
+    with open("output.txt", "w") as outfile:
+        outfile.write(modified_content)
+
+    print("Modified content written to output.txt.")
+
+except FileNotFoundError:
+    print(f"Error: The file '{filename}' was not found.")
+except IOError:
+    print(f"Error: Could not read the file '{filename}'.")
